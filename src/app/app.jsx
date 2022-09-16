@@ -28,18 +28,18 @@ function App() {
     console.log(data);
   }, []);
 
-  // let bookInfo = data.map((bookInfo) => {
-  //   return (
-  //     <div>
-  //       {" "}
-  //       <br />
-  //       <h2 className="title">{bookInfo.title}</h2>
-  //       <p className="description">
-  //         {bookInfo.description} <br />
-  //       </p>
-  //     </div>
-  //   );
-  // });
+  let bookInfo = data.map((bookInfo) => {
+    return (
+      <div>
+        {" "}
+        <br />
+        <h2 className="title">{bookInfo.title}</h2>
+        <p className="description">
+          {bookInfo.description} <br />
+        </p>
+      </div>
+    );
+  });
 
   // let bookDescr = data.map((bookDesc) => {
   //   return <h3>{bookDesc.description}</h3>
@@ -51,16 +51,7 @@ function App() {
         <Link to="/">Home</Link>
         <Link to="/profile">Profile</Link>
       </nav>
-
-      <div>
-        {data.map((book, i) => (
-          <div key={i}>
-            {book.title}
-            {book.description}
-          </div>
-        ))}
-      </div>
-      {/* <h1 className="bookinfo">{bookInfo}</h1> */}
+      <h1 className="bookinfo">{bookInfo}</h1>
 
       {/* {data.map((bookInfo) => {
         return <p>{bookInfo.description}</p>
