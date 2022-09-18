@@ -2,12 +2,14 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Form from "../form/form";
+import newBookStub from "../utilities";
 import "./book.css";
 
 function Book() {
   const [data, setData] = useState([]);
   const [newTitle, setNewTitle] = useState([...data]);
   const [newDescription, setNewDescription] = useState([...data]);
+  const [show, setShow] = useState(false);
 
   const handleTitleInput = (event) => {
     setNewTitle(event.target.value);
@@ -15,6 +17,11 @@ function Book() {
 
   const handleDescriptionInput = (event) => {
     setNewDescription(event.target.value);
+  };
+
+  const handleClose = () => {
+    setData(newBookStub);
+    setShow(false);
   };
 
   const handleClick = (event) => {
@@ -26,6 +33,11 @@ function Book() {
         description: newDescription,
       })
       .then((res) => setData(res.data));
+  };
+
+  const showForm = () => {
+    setShow(!show);
+    setData(newBookStub(data));
   };
 
   useEffect(() => {
@@ -44,26 +56,12 @@ function Book() {
             </div>
           </div>
         ))}
-
-        <div>
-          <p>INPUT TITLE:</p>
-          <input
-            type="text"
-            id="title-input"
-            name="title-input"
-            onChange={handleTitleInput}
-          ></input>
-          <p>INPUT DESCRIPTION</p>
-          <input
-            type="text"
-            id="desc-input"
-            name="desc-input"
-            onChange={handleDescriptionInput}
-            // value={newDescription} //this would be required without useState
-          ></input>
-          <button onClick={handleClick}>Click</button>
-        </div>
       </div>
+      <Form
+        handleTitleInput={handleTitleInput}
+        handleDescriptionInput={handleDescriptionInput}
+        handleClick={handleClick}
+      />
     </div>
   );
 }
