@@ -10,18 +10,30 @@ function Book() {
   const [newTitle, setNewTitle] = useState([...data]);
   const [newDescription, setNewDescription] = useState([...data]);
   const [show, setShow] = useState(false);
+  const [newBook, setNewBook] = useState();
 
   const handleTitleInput = (event) => {
     setNewTitle(event.target.value);
+    // setShow(!show);
+    console.log("handletitle is hit");
   };
 
   const handleDescriptionInput = (event) => {
     setNewDescription(event.target.value);
+    // setShow(!show);
+    console.log("handleDesc is hit");
   };
 
-  const handleClose = () => {
-    setData(newBookStub);
-    setShow(false);
+  // const handleClose = () => {
+  //   setData(newBookStub);
+  //   setShow(false);
+  // };
+
+  const showForm = () => {
+    setShow(!show);
+
+    setNewBook(newBookStub(data));
+    console.log("showForm is hit");
   };
 
   const handleClick = (event) => {
@@ -33,11 +45,8 @@ function Book() {
         description: newDescription,
       })
       .then((res) => setData(res.data));
-  };
-
-  const showForm = () => {
-    setShow(!show);
-    setData(newBookStub(data));
+    console.log("axios post is hit");
+    setShow(false);
   };
 
   useEffect(() => {
@@ -57,11 +66,22 @@ function Book() {
           </div>
         ))}
       </div>
-      <Form
-        handleTitleInput={handleTitleInput}
-        handleDescriptionInput={handleDescriptionInput}
-        handleClick={handleClick}
-      />
+      <div>
+        <div>
+          {show ? (
+            <div>
+              <Form
+                handleTitleInput={handleTitleInput}
+                handleDescriptionInput={handleDescriptionInput}
+                handleClick={handleClick}
+              />
+            </div>
+          ) : null}
+        </div>
+        <button className="new-button" onClick={showForm}>
+          New
+        </button>
+      </div>
     </div>
   );
 }
