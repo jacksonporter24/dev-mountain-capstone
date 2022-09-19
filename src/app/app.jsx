@@ -4,6 +4,7 @@ import Home from "../pages/home";
 import Book from "../pages/book";
 import Profile from "../pages/profile";
 import ErrorPage from "../pages/errorPage";
+import Chapters from "../pages/chapters";
 
 import "./app.css";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/book" element={<Book />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/chapters/:bookid" element={<Chapters />} />
       </Routes>
     </Router>
   );
