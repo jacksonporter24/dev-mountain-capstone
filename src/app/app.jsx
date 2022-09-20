@@ -11,6 +11,7 @@ import "./app.css";
 function App() {
   return (
     <Router>
+      <div className="app">
       <nav className="nav-bar">
         <Link className="home-link" to="/">HOME</Link>
         <Link className="profile-link" to="/profile">PROFILE</Link>
@@ -23,6 +24,7 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
         <Route path="/chapters/:bookid" element={<Chapters />} />
       </Routes>
+      </div>
     </Router>
   );
 }

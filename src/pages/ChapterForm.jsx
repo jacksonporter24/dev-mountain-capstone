@@ -1,21 +1,28 @@
 import { useState } from "react";
-import "./form.css";
 
 function Form({
-  handleTitleInput,
-  handleDescriptionInput,
-  handleClick,
+  handleChapterNumberInput,
+  handleChapterTitleInput,
+  handleChapterDescriptionInput,
+  handleChapterClick,
 }) {
   return (
     <div id="wrapper">
       <div className="card-red">
         <form>
+          <p>INPUT CHAPTER NUMBER</p>
+          <input
+            type="number"
+            id="title-input"
+            name="title-input"
+            onChange={handleChapterNumberInput}
+          ></input>
           <p>INPUT TITLE:</p>
           <input
             type="text"
             id="title-input"
             name="title-input"
-            onChange={handleTitleInput}
+            onChange={handleChapterTitleInput}
           ></input>
 
           <p>INPUT DESCRIPTION</p>
@@ -23,10 +30,10 @@ function Form({
             type="text"
             id="desc-input"
             name="desc-input"
-            onChange={handleDescriptionInput}
+            onChange={handleChapterDescriptionInput}
           ></input>
 
-          <button onClick={handleClick}>Click</button>
+          <button onClick={handleChapterClick}>Click</button>
         </form>
       </div>
     </div>

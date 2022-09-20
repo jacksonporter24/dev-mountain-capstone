@@ -5,6 +5,7 @@ import Form from "../form/form";
 import newBookStub from "../utilities";
 import "./book.css";
 import { useNavigate } from "react-router-dom";
+import { Drawer } from "./drawer";
 
 function Book() {
   const [data, setData] = useState([]);
@@ -55,8 +56,7 @@ function Book() {
   }, []);
 
   return (
-    <div>
-      <div className="books-background">
+    <div className="books-background">
       <div className="all-books">
         {data.map((book, i) => (
           <div key={i}>
@@ -78,25 +78,19 @@ function Book() {
           </div>
         ))}
       </div>
-      <div className="button-center"><button className="button-5" onClick={showForm}>
+      <div className="button-center">
+        <button className="button-5" onClick={showForm}>
           ADD A BOOK
-        </button></div>
-        <div>
-          {show ? (
-            <div>
-              <Form
-                handleTitleInput={handleTitleInput}
-                handleDescriptionInput={handleDescriptionInput}
-                handleClick={handleClick}
-              />
-            </div>
-          ) : null}
-        </div>
+        </button>
       </div>
-      <div>
-        
-        
-      </div>
+
+      <Drawer open={show} setOpen={setShow}>
+        <Form
+          handleTitleInput={handleTitleInput}
+          handleDescriptionInput={handleDescriptionInput}
+          handleClick={handleClick}
+        />
+      </Drawer>
     </div>
   );
 }
