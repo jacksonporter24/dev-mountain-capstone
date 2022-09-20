@@ -1,0 +1,21 @@
+.book-modal {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  /* background-color: */
+  padding: 10px;
+  border: 10px;
+  margin: 10px;
+}
+
+/* .book-title {
+  color: blue;
+ display: flex;
+ justify-content: center;
+}
+
+.book-descs {
+  color: green;
+} */

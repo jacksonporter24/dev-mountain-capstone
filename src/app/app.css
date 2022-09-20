@@ -14,10 +14,12 @@
   color: black;
   display: flex;
   top: 50%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .profile-link {
   color: black;
   display: flex;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 
 }

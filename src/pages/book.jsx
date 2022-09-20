@@ -5,8 +5,6 @@ import Form from "../form/form";
 import newBookStub from "../utilities";
 import "./book.css";
 import { useNavigate } from "react-router-dom";
-import Chapters from './chapters'
-
 
 function Book() {
   const [data, setData] = useState([]);
@@ -14,8 +12,8 @@ function Book() {
   const [newDescription, setNewDescription] = useState([...data]);
   const [show, setShow] = useState(false);
   const [newBook, setNewBook] = useState();
-  const navigate = useNavigate()
-  const [bookIdShow, setBookIdShow] = useState(false)
+  const navigate = useNavigate();
+  const [bookIdShow, setBookIdShow] = useState(false);
 
   const handleTitleInput = (event) => {
     setNewTitle(event.target.value);
@@ -35,7 +33,7 @@ function Book() {
 
   const handleChapterClick = (event) => {
     console.log("chapterClick has been hit");
-    navigate('./chapters')
+    navigate("./chapters");
   };
 
   const handleClick = (event) => {
@@ -58,24 +56,31 @@ function Book() {
 
   return (
     <div>
-      <div>
+      <div className="books-background">
+      <div className="all-books">
         {data.map((book, i) => (
           <div key={i}>
-            <div>BOOK ID: {book.bookid} </div>
-            <div className="book-title" onClick={() => {
-          navigate(`/chapters/${book.bookid}`);
-        }}>
-              
-              TITLE: {book.title}
-
-            </div>
-            <div className="book-description">
-              DESCRIPTION: {book.description}
+            <div> {bookIdShow ? <div>BOOK ID: {book.bookid} </div> : null}</div>
+            <div
+              className="book-title"
+              onClick={() => {
+                navigate(`/chapters/${book.bookid}`);
+              }}
+            >
+              <div className="title-desc">
+                <div className="book-titles">{book.title}</div>
+                <div className="book-descs"></div>
+                DESCRIPTION: <br></br>
+                <br></br>
+                <div className="description-font">{book.description}</div>
+              </div>
             </div>
           </div>
         ))}
       </div>
-      <div>
+      <div className="button-center"><button className="button-5" onClick={showForm}>
+          ADD A BOOK
+        </button></div>
         <div>
           {show ? (
             <div>
@@ -87,9 +92,10 @@ function Book() {
             </div>
           ) : null}
         </div>
-        <button className="new-button" onClick={showForm}>
-          New
-        </button>
+      </div>
+      <div>
+        
+        
       </div>
     </div>
   );

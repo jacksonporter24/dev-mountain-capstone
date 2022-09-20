@@ -1,10 +1,111 @@
-.book-title {
-  font-size: x-large;
+.books-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
 }
 
-.book-description {
+.all-books {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.title-desc {
+  background-color: whitesmoke;
+  width: 70vw;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  padding-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  border: 10px;
+  margin: 10px;
+}
+
+.book-titles {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: x-large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: black;
+}
+
+.book-descs {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.description-font {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+  display: flex;
+}
+
+.book-modal {
   padding: 10px;
-  border: 5px;
-  margin: 5px;
-  padding-bottom: 40px;
+  border: 10px;
+  margin: 10px;
+}
+
+/* CSS */
+
+.button-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.button-5 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
 }
