@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function PROFILE() {
+function UserID() {
   let navigate = useNavigate();
   let { username } = useParams()
   return (
@@ -18,4 +18,4 @@ function PROFILE() {
   );
 }
 
-export default PROFILE;
+export default UserID;
