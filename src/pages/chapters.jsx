@@ -58,23 +58,30 @@ const Chapters = () => {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className="chapters-background">
+      <div className="book-info">
         {bookData.map((book, i) => (
           <div key={i}>
             <div> {bookIdShow ? <div>BOOK ID: {book.bookid} </div> : null}</div>
-            <div>TITLE: {book.title}</div>
+            <div>{book.title}</div>
             <div>DESCRIPTION: {book.description}</div>
           </div>
         ))}
       </div>
-      <div>
-        {data.map((chapter, j) => (
-          <div key={j}>
-            <div>chapter title: {chapter.chaptertitle}</div>
-            <div>description: {chapter.chapterdescription}</div>
-          </div>
-        ))}
+      <div className="all-chapters">
+        <div>
+          {data.map((chapter, j) => (
+            <div key={j}>
+              <div className="chapter-numbers">
+                Chapter {chapter.chapternumber}
+              </div>
+              <div className="chapter-titles">{chapter.chaptertitle}</div>
+              <div className="chapter-summaries">
+                Summary: {chapter.chapterdescription}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <button onClick={() => setShowDrawer(true)}>New Chapter</button>
       <Drawer open={showDrawer} setOpen={setShowDrawer}>

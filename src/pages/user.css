@@ -1,5 +1,17 @@
+@font-face {
+  font-family: "unna-font";
+  src: url(../fonts/Unna-Regular.ttf);
+}
+
+.login-text {
+  font-family: "unna-font";
+  font-size: xx-large;
+  color: black;
+  padding: 5px;
+}
+
 .profile {
-  font-family: sans-serif;
+  font-family: "unna-font";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,35 +22,37 @@
   background-color: #f8f9fd;
 }
 
-input[type="text"],
-input[type="password"] {
-  height: 25px;
+.input-box {
+  font-family: "unna-font";
+  height: 10vh;
+  width: 30vw;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  margin: 5px;
+  font-size: x-large;
 }
 
-input[type="submit"] {
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  background: #01d28e;
-  border: 1px solid #01d28e;
-  color: #fff;
-  padding: 10px 20px;
-}
-
-input[type="submit"]:hover {
+/* input[type="submit"]:hover {
+  font-family: "unna-font";
   background: #6cf0c2;
-}
+} */
 
 .button-container {
+  font-family: "unna-font";
   display: flex;
   justify-content: center;
 }
 
 .login-form {
+  font-family: "unna-font";
   background-color: white;
-  padding: 2rem;
+  padding-bottom: 1.5rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
 }
 
 .list-container {
@@ -46,18 +60,87 @@ input[type="submit"]:hover {
 }
 
 .error {
+  font-family: "unna-font";
   color: red;
   font-size: 12px;
 }
 
 .title {
+  font-family: "unna-font";
   font-size: 25px;
   margin-bottom: 20px;
 }
 
 .input-container {
+  font-family: "unna-font";
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin: 10px;
+}
+
+.plot-your-book {
+  font-family: "unna-font";
+  padding: 25px;
+}
+
+.home-page {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.button-5 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 31vw;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
 }

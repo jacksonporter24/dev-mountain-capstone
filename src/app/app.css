@@ -1,27 +1,43 @@
+@font-face {
+  font-family: "unna-font";
+  src: url(../fonts/Unna-Regular.ttf);
+}
+
 .nav-bar {
+  font-family: "unna-font";
   font-size: larger;
   display: flex;
   justify-content: space-around;
   height: 60px;
   padding: 12px;
-  background-color: aquamarine;
+  background-color:#fa6400;
   align-items: center;
 }
 
 .home-link {
+  font-size: x-large;
   font-weight: 400;
-  color: black;
+  color: white;
   display: flex;
   top: 50%;
-  font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+.home-link:link {text-decoration: none;}
+.home-link:visited { text-decoration: none; }
+.home-link:hover { text-decoration: underline; }
+.home-link:active { text-decoration: none; }
 
 .profile-link {
-  color: black;
+  font-size: x-large;
+  font-family: "unna-font";
+  color: white;
   display: flex;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-
 }
+
+.profile-link:link {text-decoration: none;}
+.profile-link:visited { text-decoration: none; }
+.profile-link:hover { text-decoration: underline; }
+.profile-link:active { text-decoration: none; }
 
 .app {
   width: 100vw;

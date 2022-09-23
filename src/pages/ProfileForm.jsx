@@ -1,4 +1,5 @@
 import React from "react";
+import "./ProfileForm.css";
 
 function ProfileForm({
   handleUsernameInput,
@@ -6,42 +7,50 @@ function ProfileForm({
   handleFirstNameInput,
   handleLastNameInput,
   handleRegisterClick,
+  handleLoginClick,
 }) {
   return (
-    <div>
-      <div>
+    <div class="wrapper">
+      <div className="user-info">
         <form>
-          <div>
+          <div className="registration-form">
             <h1>REGISTRATION</h1>
-            <label>Username</label>
+            <label>Username: </label>
             <input
+              className="registration-input"
               type="text"
               onChange={handleUsernameInput}
             />
-            <label>Password</label>
+            <br></br>
+            <label>Password: </label>
             <input
+              className="registration-input"
               type="text"
               onChange={handlePasswordInput}
             />
-            <label>First Name</label>
+            <br></br>
+            <label>First Name: </label>
             <input
+              className="registration-input"
               type="text"
               onChange={handleFirstNameInput}
             />
-            <label>Last Name</label>
+            <br></br>
+            <label>Last Name: </label>
             <input
+              className="registration-input"
               type="text"
               onChange={handleLastNameInput}
             />
-            <button type="button" onClick={handleRegisterClick}>REGISTER</button>
-          </div>
-          <div>
-            <h1>LOGIN</h1>
-            <input type="text" placeholder="Username..." />
-            <input type="password" placeholder="Password..." />
-            <input type="firstname" placeholder="First Name..." />
-            <input type="lastname" placeholder="Last Name..." />
-            <button type="button" >LOGIN</button>
+
+            <br></br>
+            <button
+              className="button-7"
+              type="button"
+              onClick={handleRegisterClick}
+            >
+              REGISTER
+            </button>
           </div>
         </form>
       </div>

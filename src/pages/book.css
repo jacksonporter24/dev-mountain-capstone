@@ -1,7 +1,13 @@
+@font-face {
+  font-family: "unna-font";
+  src: url(../fonts/Unna-Regular.ttf);
+}
+
 .books-background {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: white;
   height: 100%;
   width: 100%;
+  overflow: auto;
 }
 
 .all-books {
@@ -9,24 +15,33 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: auto;
 }
+
+.book-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 .title-desc {
-  background-color: whitesmoke;
+  background-color: white;
   width: 70vw;
-  height: 25vh;
+  min-height: 35vh;
   display: flex;
   flex-direction: column;
   padding: 25px;
   padding-bottom: 10px;
   justify-content: center;
-  align-items: center;
   border: 10px;
   margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .book-titles {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: x-large;
+  font-family: "unna-font";
+  font-size: xxx-large;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,19 +49,18 @@
   color: black;
 }
 
-.book-descs {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: black;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
+.description {
+  font-family: "unna-font";
+  font-size: x-large;
   text-align: center;
 }
 
 .description-font {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "unna-font";
+  font-size: x-large;
   color: black;
   display: flex;
+  text-align: justify;
 }
 
 .book-modal {
@@ -91,7 +105,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: auto;
+  width: 1000px;
 }
 
 .button-5:hover,

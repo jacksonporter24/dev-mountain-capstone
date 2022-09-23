@@ -51,12 +51,19 @@ function Book() {
   };
 
   useEffect(() => {
-    axios.get("/api/books").then((res) => setData(res.data));
+    axios.get("/api/books").then(res => setData(res.data));
     console.log(data);
   }, []);
 
   return (
     <div className="books-background">
+      <div className="book-info">
+        <br></br>
+        <button className="button-5" onClick={showForm}>
+          ADD A BOOK
+        </button>
+        <br></br>
+      </div>
       <div className="all-books">
         {data.map((book, i) => (
           <div key={i}>
@@ -68,20 +75,14 @@ function Book() {
               }}
             >
               <div className="title-desc">
-                <div className="book-titles">{book.title}</div>
-                <div className="book-descs"></div>
-                DESCRIPTION: <br></br>
+                <div className="book-titles">{book.title}</div><br></br>
+                <div className="description">DESCRIPTION:</div> <br></br>
                 <br></br>
                 <div className="description-font">{book.description}</div>
               </div>
             </div>
           </div>
         ))}
-      </div>
-      <div className="button-center">
-        <button className="button-5" onClick={showForm}>
-          ADD A BOOK
-        </button>
       </div>
 
       <Drawer open={show} setOpen={setShow}>
