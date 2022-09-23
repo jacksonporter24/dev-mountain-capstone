@@ -24,9 +24,9 @@ function User() {
   }, []);
 
   useEffect(() => {
-    axios.post("api/username").then((res) => setUserNameData(res.data))
-    console.log(data);
-  }, [])
+    axios.post("api/username").then((res) => setUserNameData(res.data));
+    console.log("this is", data);
+  }, []);
 
   const handleUsernameInput = (event) => {
     setUsernameReg(event.target.value);
@@ -50,13 +50,13 @@ function User() {
 
   const handleUsernameLogin = (event) => {
     setUsernameLogin(event.target.value);
-    console.log(event.target.value)
+    console.log(event.target.value);
   };
 
   const handlePasswordLogin = (event) => {
     setPasswordLogin(event.target.value);
-    console.log(event.target.value)
-    console.log(passwordLogin)
+    console.log('this is line 58 of user.jsx', event.target.value);
+    console.log(passwordLogin);
   };
 
   const handleRegisterClick = () => {
@@ -71,26 +71,32 @@ function User() {
         navigate(`user/${response.data.userid}`);
       });
   };
-  
+
   const handleLoginClick = () => {
+    console.log(usernameLogin);
+    console.log(passwordLogin);
     axios
-      .post
-        ("/api/username", {
-          user: usernameLogin,
-          password: passwordLogin,
-        })
-        .then((response) => {
-          navigate(`user/${response.data.userid}`)
-        })
-      
-  }
+      .post("/api/username", {
+        user: usernameLogin,
+        password: passwordLogin
+      })
+      .then((response) => {
+        navigate(`user/${response.data.userid}`)
+        console.log(response);
+      }).catch(error => console.log(error));
+  };
 
   return (
     <div className="home-page">
       <h1 className="plot-your-book">PLOT YOUR BOOK</h1>
       <div className="login-form">
         <h1 className="login-text">SIGN IN</h1>
-        <input className="input-box" type="text" placeholder=" Username..." onChange={handleUsernameLogin} />
+        <input
+          className="input-box"
+          type="text"
+          placeholder=" Username..."
+          onChange={handleUsernameLogin}
+        />
         <input
           className="input-box"
           type="password"

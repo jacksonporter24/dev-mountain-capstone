@@ -46,9 +46,10 @@ function Book() {
   };
 
   const handleClick = (event) => {
+    console.log('I am in handleClick')
     event.preventDefault();
     axios
-      .post("/api/books", {
+      .post(`/api/books`, {
         title: newTitle,
         description: newDescription,
         userid
