@@ -51,7 +51,7 @@ function Book() {
   };
 
   useEffect(() => {
-    axios.get("/api/books").then(res => setData(res.data));
+    axios.get("/api/books").then((res) => setData(res.data));
     console.log(data);
   }, []);
 

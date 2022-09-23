@@ -7,7 +7,6 @@ function ProfileForm({
   handleFirstNameInput,
   handleLastNameInput,
   handleRegisterClick,
-  handleLoginClick,
 }) {
   return (
     <div class="wrapper">
