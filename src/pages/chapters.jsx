@@ -45,8 +45,9 @@ const Chapters = () => {
     console.log("axios post is hit");
   };
 
+  //below is just so it can display the title and the description of the current book.
   useEffect(() => {
-    axios.get(`/api/books/${bookid}`).then((res) => setBookData(res.data));
+    axios.get(`/api/userbooks/${bookid}`).then((res) => setBookData(res.data));
     console.log(data);
   }, []);
 

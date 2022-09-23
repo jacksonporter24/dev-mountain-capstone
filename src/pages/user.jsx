@@ -19,12 +19,12 @@ function User() {
   const [passwordLogin, setPasswordLogin] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/users").then((res) => setData(res.data));
+    axios.get("api/users").then((res) => setData(res.data));
     console.log(data);
   }, []);
 
   useEffect(() => {
-    axios.post("/api/username").then((res) => setUserNameData(res.data))
+    axios.post("api/username").then((res) => setUserNameData(res.data))
     console.log(data);
   }, [])
 

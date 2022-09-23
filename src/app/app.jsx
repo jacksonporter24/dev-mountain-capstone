@@ -19,7 +19,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<User />} />
-        <Route path="/book" element={<Book />} />
+        <Route path="/books/:userid" element={<Book />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/chapters/:bookid" element={<Chapters />} />
         <Route path="/user/:userid" element={<UserID />} />

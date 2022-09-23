@@ -26,16 +26,16 @@ function UserID() {
             </div>
           </div>
           <p>Welcome {user.firstname} {user.lastname}</p>
-        </div>
-      ))}
-      
-      <button
+          <button
         onClick={() => {
-          navigate("/book");
+          navigate(`/books/${user.userid}`);
         }}
       >
         SEE ALL BOOKS
       </button>
+        </div>
+      ))}
+      
     </div>
   );
 }

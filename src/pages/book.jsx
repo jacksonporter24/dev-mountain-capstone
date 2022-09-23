@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Form from "../form/form";
 import newBookStub from "../utilities";
 import "./book.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Drawer } from "./drawer";
 
 function Book() {
@@ -15,6 +15,14 @@ function Book() {
   const [newBook, setNewBook] = useState();
   const navigate = useNavigate();
   const [bookIdShow, setBookIdShow] = useState(false);
+
+  useEffect(() => {
+    console.log('useEffect', userid)
+    axios.get(`/api/userbooks/${userid}`).then((res) => setData(res.data));
+    console.log(data);
+  }, []);
+
+  let { userid } = useParams();
 
   const handleTitleInput = (event) => {
     setNewTitle(event.target.value);
@@ -41,19 +49,14 @@ function Book() {
     event.preventDefault();
     axios
       .post("/api/books", {
-        userId: "345",
         title: newTitle,
         description: newDescription,
+        userid
       })
       .then((res) => setData(res.data));
     console.log("axios post is hit");
     setShow(false);
   };
-
-  useEffect(() => {
-    axios.get("/api/books").then((res) => setData(res.data));
-    console.log(data);
-  }, []);
 
   return (
     <div className="books-background">
