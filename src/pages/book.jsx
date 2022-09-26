@@ -15,12 +15,17 @@ function Book() {
   const [newBook, setNewBook] = useState();
   const navigate = useNavigate();
   const [bookIdShow, setBookIdShow] = useState(false);
+  const [currentlyEditing, setCurrentlyEditing] = useState(null)
 
   useEffect(() => {
     console.log('useEffect', userid)
     axios.get(`/api/userbooks/${userid}`).then((res) => setData(res.data));
     console.log(data);
   }, []);
+
+  // useEffect(() => {
+  //   axios.put(`/api/booksbyid/${bookid}`).then((res) => setData(res.data))
+  // }, []);
 
   let { userid } = useParams();
 
@@ -34,8 +39,9 @@ function Book() {
     console.log("handleDesc is hit");
   };
 
-  const showForm = () => {
+  const showForm = (id) => {
     setShow(!show);
+    setCurrentlyEditing(id);
     setNewBook(newBookStub(data));
     console.log("showForm is hit");
   };
@@ -59,6 +65,21 @@ function Book() {
     setShow(false);
   };
 
+  
+  const handleEditClick = (event) => {
+    console.log('handle Edit Click hit')
+    event.preventDefault();
+    axios
+      .put(`/api/editbooks/${currentlyEditing}/${userid}`, {
+        title: newTitle,
+        description: newDescription
+      })
+      .then((res) => setData(res.data));
+      setShow(false)
+   
+    console.log(currentlyEditing, newTitle, newDescription)
+  }
+
   return (
     <div className="books-background">
       <div className="book-info">
@@ -72,13 +93,16 @@ function Book() {
         {data.map((book, i) => (
           <div key={i}>
             <div> {bookIdShow ? <div>BOOK ID: {book.bookid} </div> : null}</div>
+            <div><button onClick={() => showForm(book.bookid)}>Edit</button></div>
             <div
               className="book-title"
               onClick={() => {
                 navigate(`/chapters/${book.bookid}`);
               }}
             >
+              
               <div className="title-desc">
+              
                 <div className="book-titles">{book.title}</div><br></br>
                 <div className="description">DESCRIPTION:</div> <br></br>
                 <br></br>
@@ -94,6 +118,7 @@ function Book() {
           handleTitleInput={handleTitleInput}
           handleDescriptionInput={handleDescriptionInput}
           handleClick={handleClick}
+          handleEditClick={handleEditClick}
         />
       </Drawer>
     </div>

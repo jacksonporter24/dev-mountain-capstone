@@ -8,7 +8,7 @@ import { Drawer } from "./drawer";
 
 const Chapters = () => {
   const [data, setData] = useState([]);
-  const [bookData, setBookData] = useState([]);
+  const [bookData, setBookData] = useState([...data]);
   const [bookIdShow, setBookIdShow] = useState(false);
   const [newChapNum, setNewChapNum] = useState([...data]);
   const [newChapTitle, setNewChapTitle] = useState([...data]);
@@ -59,12 +59,12 @@ const Chapters = () => {
 
   return (
     <div className="chapters-background">
-      <div className="book-info">
+      <div className="chapter-info">
         {bookData.map((book, i) => (
           <div key={i}>
             <div> {bookIdShow ? <div>BOOK ID: {book.bookid} </div> : null}</div>
-            <div>{book.title}</div>
-            <div>DESCRIPTION: {book.description}</div>
+            <div className="the-book-title">{book.title}</div>
+            <div className="the-chapter-title">DESCRIPTION: {book.description}</div>
           </div>
         ))}
       </div>
@@ -72,12 +72,14 @@ const Chapters = () => {
         <div>
           {data.map((chapter, j) => (
             <div key={j}>
-              <div className="chapter-numbers">
-                Chapter {chapter.chapternumber}
-              </div>
-              <div className="chapter-titles">{chapter.chaptertitle}</div>
-              <div className="chapter-summaries">
-                Summary: {chapter.chapterdescription}
+              <div className="chapter-words">
+                <div className="chapter-numbers">
+                  Chapter {chapter.chapternumber}
+                </div>
+                <div className="chapter-titles">{chapter.chaptertitle}</div>
+                <div className="chapter-summaries">
+                  Summary: {chapter.chapterdescription}
+                </div>
               </div>
             </div>
           ))}

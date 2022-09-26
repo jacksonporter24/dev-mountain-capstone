@@ -1,5 +1,5 @@
-const newBookStub = (data) => ({
-  userid: 345,
+const newBookStub = (books) => ({
+  userid: 0,
   title: "",
   description: ""
 });

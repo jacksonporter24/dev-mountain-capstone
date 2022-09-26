@@ -1,21 +1,45 @@
-.book-modal {
+/* @font-face {
+  font-family: "unna-font";
+  src: url(../fonts/Unna-Regular.ttf);
+}
+
+.chapters-background {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.all-chapters {
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  align-content: center;
-  /* background-color: */
-  padding: 10px;
+  height: auto;
+}
+
+.chapter-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+.the-book-title {
+  color: black;
+}
+
+/* .chapter-words {
+  background-color: white;
+  width: 70vw;
+  min-height: 35vh;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  padding-bottom: 10px;
+  justify-content: center;
   border: 10px;
   margin: 10px;
-}
-
-/* .book-title {
-  color: blue;
- display: flex;
- justify-content: center;
-}
-
-.book-descs {
-  color: green;
-} */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */ 
