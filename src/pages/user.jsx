@@ -20,12 +20,12 @@ function User() {
 
   useEffect(() => {
     axios.get("api/users").then((res) => setData(res.data));
-    console.log(data);
+    // console.log(data);
   }, []);
 
   useEffect(() => {
     axios.post("api/username").then((res) => setUserNameData(res.data));
-    console.log("this is", data);
+    // console.log("this is", data);
   }, []);
 
   const handleUsernameInput = (event) => {
@@ -35,28 +35,28 @@ function User() {
 
   const handlePasswordInput = (event) => {
     setPasswordReg(event.target.value);
-    console.log("handle password input is hit");
+    // console.log("handle password input is hit");
   };
 
   const handleFirstNameInput = (event) => {
     setUserFirstName(event.target.value);
-    console.log("handle first name hit");
+    // console.log("handle first name hit");
   };
 
   const handleLastNameInput = (event) => {
     setUserLastName(event.target.value);
-    console.log("handle last name hit");
+    // console.log("handle last name hit");
   };
 
   const handleUsernameLogin = (event) => {
     setUsernameLogin(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   const handlePasswordLogin = (event) => {
     setPasswordLogin(event.target.value);
-    console.log('this is line 58 of user.jsx', event.target.value);
-    console.log(passwordLogin);
+    // console.log('this is line 58 of user.jsx', event.target.value);
+    // console.log(passwordLogin);
   };
 
   const handleRegisterClick = () => {
@@ -73,8 +73,8 @@ function User() {
   };
 
   const handleLoginClick = () => {
-    console.log(usernameLogin);
-    console.log(passwordLogin);
+    // console.log(usernameLogin);
+    // console.log(passwordLogin);
     axios
       .post("/api/username", {
         user: usernameLogin,

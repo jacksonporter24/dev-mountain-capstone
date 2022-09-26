@@ -5,6 +5,8 @@ function Form({
   handleChapterTitleInput,
   handleChapterDescriptionInput,
   handleChapterClick,
+  handleChapterEditClick,
+  handleChapterDeleteClick,
 }) {
   return (
     <div id="wrapper">
@@ -33,7 +35,15 @@ function Form({
             onChange={handleChapterDescriptionInput}
           ></input>
 
-          <button onClick={handleChapterClick}>Click</button>
+          <button className="button-9" onClick={handleChapterClick}>
+            CREATE CHAPTER
+          </button>
+          <button className="button-9" onClick={handleChapterEditClick}>
+            EDIT CHAPTER
+          </button>
+          <button className="button-9" onClick={handleChapterDeleteClick}>
+            DELETE CHAPTER
+          </button>
         </form>
       </div>
     </div>

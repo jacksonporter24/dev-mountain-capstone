@@ -8,7 +8,7 @@ function UserID() {
 
   useEffect(() => {
     axios.get(`/api/users/${userid}`).then((res) => setData(res.data));
-    console.log(data);
+    // console.log(data);
   }, []);
 
   let navigate = useNavigate();

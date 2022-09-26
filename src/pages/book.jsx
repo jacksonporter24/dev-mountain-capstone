@@ -20,39 +20,35 @@ function Book() {
   useEffect(() => {
     console.log('useEffect', userid)
     axios.get(`/api/userbooks/${userid}`).then((res) => setData(res.data));
-    console.log(data);
+    // console.log(data);
   }, []);
-
-  // useEffect(() => {
-  //   axios.put(`/api/booksbyid/${bookid}`).then((res) => setData(res.data))
-  // }, []);
 
   let { userid } = useParams();
 
   const handleTitleInput = (event) => {
     setNewTitle(event.target.value);
-    console.log("handletitle is hit");
+    // console.log("handletitle is hit");
   };
 
   const handleDescriptionInput = (event) => {
     setNewDescription(event.target.value);
-    console.log("handleDesc is hit");
+    // console.log("handleDesc is hit");
   };
 
   const showForm = (id) => {
     setShow(!show);
     setCurrentlyEditing(id);
     setNewBook(newBookStub(data));
-    console.log("showForm is hit");
+    // console.log("showForm is hit");
   };
 
   const handleChapterClick = (event) => {
-    console.log("chapterClick has been hit");
+    // console.log("chapterClick has been hit");
     navigate("./chapters");
   };
 
   const handleClick = (event) => {
-    console.log('I am in handleClick')
+    // console.log('I am in handleClick')
     event.preventDefault();
     axios
       .post(`/api/books`, {
@@ -61,13 +57,13 @@ function Book() {
         userid
       })
       .then((res) => setData(res.data));
-    console.log("axios post is hit");
+    // console.log("axios post is hit");
     setShow(false);
   };
 
   
   const handleEditClick = (event) => {
-    console.log('handle Edit Click hit')
+    // console.log('handle Edit Click hit')
     event.preventDefault();
     axios
       .put(`/api/editbooks/${currentlyEditing}/${userid}`, {
@@ -77,18 +73,18 @@ function Book() {
       .then((res) => setData(res.data));
       setShow(false)
    
-    console.log(currentlyEditing, newTitle, newDescription)
+    // console.log(currentlyEditing, newTitle, newDescription)
   };
 
   const handleDeleteClick = (event) => {
-    console.log('handle delete click is hit')
+    // console.log('handle delete click is hit')
     event.preventDefault();
     axios
       .delete(`/api/deletebooks/${currentlyEditing}/${userid}`)
       .then((res) => setData(res.data));
       setShow(false)
 
-      console.log(currentlyEditing)
+      // console.log(currentlyEditing)
   };
 
   return (
