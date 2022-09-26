@@ -78,7 +78,18 @@ function Book() {
       setShow(false)
    
     console.log(currentlyEditing, newTitle, newDescription)
-  }
+  };
+
+  const handleDeleteClick = (event) => {
+    console.log('handle delete click is hit')
+    event.preventDefault();
+    axios
+      .delete(`/api/deletebooks/${currentlyEditing}/${userid}`)
+      .then((res) => setData(res.data));
+      setShow(false)
+
+      console.log(currentlyEditing)
+  };
 
   return (
     <div className="books-background">
@@ -119,6 +130,7 @@ function Book() {
           handleDescriptionInput={handleDescriptionInput}
           handleClick={handleClick}
           handleEditClick={handleEditClick}
+          handleDeleteClick={handleDeleteClick}
         />
       </Drawer>
     </div>

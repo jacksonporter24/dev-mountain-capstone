@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./form.css";
 
-function Form({ handleTitleInput, handleDescriptionInput, handleClick, handleEditClick }) {
+function Form({ handleTitleInput, handleDescriptionInput, handleClick, handleEditClick, handleDeleteClick }) {
   return (
     <div id="wrapper">
       <div className="book-form">
@@ -32,6 +32,9 @@ function Form({ handleTitleInput, handleDescriptionInput, handleClick, handleEdi
               </button>
               <button className="button-8" type="button" onClick={handleEditClick}>
                 EDIT BOOK
+              </button>
+              <button className="button-8" type="button" onClick={handleDeleteClick}>
+                DELETE BOOK
               </button>
             </div>
           </div>
