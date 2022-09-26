@@ -15,10 +15,10 @@ function Book() {
   const [newBook, setNewBook] = useState();
   const navigate = useNavigate();
   const [bookIdShow, setBookIdShow] = useState(false);
-  const [currentlyEditing, setCurrentlyEditing] = useState(null)
+  const [currentlyEditing, setCurrentlyEditing] = useState(null);
 
   useEffect(() => {
-    console.log('useEffect', userid)
+    console.log("useEffect", userid);
     axios.get(`/api/userbooks/${userid}`).then((res) => setData(res.data));
     // console.log(data);
   }, []);
@@ -54,25 +54,24 @@ function Book() {
       .post(`/api/books`, {
         title: newTitle,
         description: newDescription,
-        userid
+        userid,
       })
       .then((res) => setData(res.data));
     // console.log("axios post is hit");
     setShow(false);
   };
 
-  
   const handleEditClick = (event) => {
     // console.log('handle Edit Click hit')
     event.preventDefault();
     axios
       .put(`/api/editbooks/${currentlyEditing}/${userid}`, {
         title: newTitle,
-        description: newDescription
+        description: newDescription,
       })
       .then((res) => setData(res.data));
-      setShow(false)
-   
+    setShow(false);
+
     // console.log(currentlyEditing, newTitle, newDescription)
   };
 
@@ -82,9 +81,9 @@ function Book() {
     axios
       .delete(`/api/deletebooks/${currentlyEditing}/${userid}`)
       .then((res) => setData(res.data));
-      setShow(false)
+    setShow(false);
 
-      // console.log(currentlyEditing)
+    // console.log(currentlyEditing)
   };
 
   return (
@@ -100,17 +99,18 @@ function Book() {
         {data.map((book, i) => (
           <div key={i}>
             <div> {bookIdShow ? <div>BOOK ID: {book.bookid} </div> : null}</div>
-            <div><button onClick={() => showForm(book.bookid)}>Edit</button></div>
+            <div>
+              <button onClick={() => showForm(book.bookid)}>Edit</button>
+            </div>
             <div
               className="book-title"
               onClick={() => {
                 navigate(`/chapters/${book.bookid}`);
               }}
             >
-              
               <div className="title-desc">
-              
-                <div className="book-titles">{book.title}</div><br></br>
+                <div className="book-titles">{book.title}</div>
+                <br></br>
                 <div className="description">DESCRIPTION:</div> <br></br>
                 <br></br>
                 <div className="description-font">{book.description}</div>

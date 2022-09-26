@@ -75,6 +75,14 @@ const Chapters = () => {
     setShowDrawer(false);
   };
 
+  const handleChapterDeleteClick = (event) => {
+    event.preventDefault();
+    axios
+      .delete(`/api/deletechapters/${currentlyChapterEditing}/${bookid}`)
+      .then((res) => setData(res.data));
+    setShowDrawer(false);
+  };
+
   return (
     <div className="chapter-cards">
       <div className="chapters-background">
@@ -125,7 +133,7 @@ const Chapters = () => {
             handleChapterDescriptionInput={handleChapterDescriptionInput}
             handleChapterClick={handleChapterClick}
             handleChapterEditClick={handleChapterEditClick}
-            // handleChapterDeleteClick={handleChapterDeleteClick}
+            handleChapterDeleteClick={handleChapterDeleteClick}
           />
         </Drawer>
       </div>
