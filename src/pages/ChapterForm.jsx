@@ -37,7 +37,6 @@ function Form({
               name="desc-input"
               onChange={handleChapterDescriptionInput}
             ></input>
-
             <div className="div-button">
               <button className="button-9" onClick={handleChapterClick}>
                 CREATE CHAPTER

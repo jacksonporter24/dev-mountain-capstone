@@ -7,9 +7,10 @@
   font-family: "unna-font";
   font-size: larger;
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
   height: 60px;
   padding: 12px;
+  padding-left: 80px;
   background-color:#fa6400;
   align-items: center;
 }

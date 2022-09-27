@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./chapters.css";
@@ -16,17 +16,18 @@ const Chapters = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   const [currentlyChapterEditing, setCurrentlyChapterEditing] = useState(null);
 
-  let { bookid } = useParams();
+  let { bookid, userid } = useParams();
+  const navigate = useNavigate();
 
   //below is just so it can display the title and the description of the current book.
   useEffect(() => {
     axios.get(`/api/userbooks/${bookid}`).then((res) => setBookData(res.data));
-    console.log(data);
+    // console.log(data);
   }, []);
 
   useEffect(() => {
     axios.get(`/api/chapters/${bookid}`).then((res) => setData(res.data));
-    console.log(data);
+    // console.log(data);
     // console.log(chapters.chaptertitle)
   }, []);
 
@@ -55,6 +56,7 @@ const Chapters = () => {
         bookid,
       })
       .then((res) => setData(res.data));
+      setShowDrawer(false);
     // console.log("axios post is hit");
   };
 
@@ -127,6 +129,9 @@ const Chapters = () => {
           <button className="button-9" onClick={() => setShowDrawer(true)}>
             ADD CHAPTER
           </button>
+        </div>
+        <div>
+        <button className="back-button" onClick={() => { navigate(`books/${userid}`)}}>BACK</button>
         </div>
         <Drawer open={showDrawer} setOpen={setShowDrawer}>
           <Form

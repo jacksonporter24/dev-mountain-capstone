@@ -18,7 +18,7 @@ function Book() {
   const [currentlyEditing, setCurrentlyEditing] = useState(null);
 
   useEffect(() => {
-    console.log("useEffect", userid);
+    // console.log("useEffect", userid);
     axios.get(`/api/userbooks/${userid}`).then((res) => setData(res.data));
     // console.log(data);
   }, []);
@@ -99,25 +99,33 @@ function Book() {
         {data.map((book, i) => (
           <div key={i}>
             <div> {bookIdShow ? <div>BOOK ID: {book.bookid} </div> : null}</div>
-            <div
-              className="book-title"
-              onClick={() => {
-                navigate(`/chapters/${book.bookid}`);
-              }}
-            >
+            <div className="book-title">
               <div className="title-desc">
-                <div className="book-titles">{book.title}</div>
+                <div
+                  className="book-titles"
+                  onClick={() => {
+                    navigate(`/chapters/${book.bookid}`);
+                  }}
+                >
+                  {book.title}
+                </div>
                 <br></br>
                 <div className="description">DESCRIPTION:</div> <br></br>
                 <br></br>
                 <div className="description-font">{book.description}</div>
                 <div>
-                  <button className="book-edit-button" onClick={() => showForm(book.bookid)}>EDIT</button>
+                  <button
+                    className="book-edit-button"
+                    onClick={() => showForm(book.bookid)}
+                  >
+                    EDIT
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         ))}
+        <button className="back-button" onClick={() => { navigate(`/user/${userid}`)}}>BACK</button>
       </div>
 
       <Drawer open={show} setOpen={setShow}>

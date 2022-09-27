@@ -79,6 +79,7 @@ label {
   font-family: "unna-font";
   display: flex;
   justify-content: center;
+  font-size: large;
 }
 
 .chapter-titles {
@@ -86,6 +87,7 @@ label {
   display: flex;
   justify-content: center;
   padding: 5px;
+  font-size: xx-large;
 }
 
 .chapter-summaries {
@@ -93,6 +95,7 @@ label {
   display: flex;
   justify-content: justify;
   padding: 10px;
+  font-size: x-large;
 }
 
 .div-button {

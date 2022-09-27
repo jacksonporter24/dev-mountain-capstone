@@ -14,7 +14,7 @@ function App() {
       <div className="app">
       <nav className="nav-bar">
         <Link className="home-link" to="/">HOME</Link>
-        <Link className="profile-link" to="/user">PROFILE</Link>
+        {/* <Link className="profile-link" to="/user/:userid">LOG OUT</Link> */}
       </nav>
 
       <Routes>
