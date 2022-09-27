@@ -22,28 +22,22 @@ const Chapters = () => {
   //below is just so it can display the title and the description of the current book.
   useEffect(() => {
     axios.get(`/api/userbooks/${bookid}`).then((res) => setBookData(res.data));
-    // console.log(data);
   }, []);
 
   useEffect(() => {
     axios.get(`/api/chapters/${bookid}`).then((res) => setData(res.data));
-    // console.log(data);
-    // console.log(chapters.chaptertitle)
   }, []);
 
   const handleChapterNumberInput = (event) => {
     setNewChapNum(event.target.value);
-    // console.log("handle chapter num hit");
   };
 
   const handleChapterTitleInput = (event) => {
     setNewChapTitle(event.target.value);
-    // console.log("handle chap titleis hit");
   };
 
   const handleChapterDescriptionInput = (event) => {
     setNewChapDesc(event.target.value);
-    // console.log("handleDesc is hit");
   };
 
   const handleChapterClick = (event) => {
@@ -57,7 +51,6 @@ const Chapters = () => {
       })
       .then((res) => setData(res.data));
       setShowDrawer(false);
-    // console.log("axios post is hit");
   };
 
   const showChapterForm = (id) => {
