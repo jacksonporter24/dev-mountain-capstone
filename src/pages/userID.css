@@ -3,48 +3,60 @@
   src: url(../fonts/Unna-Regular.ttf);
 }
 
-.wrapper {
+.user-id-background {
+  background-color: white;
   height: 100%;
   width: 100%;
   overflow: auto;
-  font-family: "unna-font";
-}
-
-.book-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.book-info-form {
-  padding-top: 60px;
-}
-
-.button-2-div{
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  padding-top: 30px;
-}
-
-.book-registration-form {
-  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.book-input {
-  padding: 1px;
+.user-id-page {
+  background-color: white;
+  width: 90vw;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 25px;
+  padding-bottom: 10px;
+  border: 10px;
   margin: 10px;
-  height: 5vh;
-  width: 15vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-label {
-  font-size: large;
+.full-greeting {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+.greeting {
+  padding: 0px;
+  padding-top: 20px;
+  border: 0px;
+  margin: 0px;
   font-family: "unna-font";
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+}
+
+.full-name {
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-family: "unna-font";
+  font-size: 2cm;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  padding: 100px;
 }
 
 .button-center {
@@ -54,9 +66,9 @@ label {
   align-items: center;
   padding: 20px;
 }
-
-.button-8 {
-  align-items: center;
+.button-10 {
+  display: flex;
+  justify-content: center;
   background-clip: padding-box;
   background-color: #fa6400;
   border: 1px solid transparent;
@@ -65,38 +77,37 @@ label {
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  display: flex;
-  font-family: "unna-font";
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
-  justify-content: center;
   line-height: 1.25;
   margin: 0;
   min-height: 3rem;
   padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
-  position: relative;
+  /* position: relative; */
   text-decoration: none;
   transition: all 250ms;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: 15vw;
-  align-self: center;
+  width: 200px;
 }
 
-.button-8:hover,
-.button-8:focus {
+.button-10:hover,
+.button-10:focus {
   background-color: #fb8332;
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
-.button-8:hover {
+.button-10:hover {
   transform: translateY(-1px);
 }
 
-.button-8:active {
+.button-10:active {
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
 }
+

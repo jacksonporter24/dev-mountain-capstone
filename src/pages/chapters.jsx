@@ -105,12 +105,6 @@ const Chapters = () => {
             {data.map((chapter, j) => (
               <div key={j}>
                 <div className="chapter-words">
-                  <button
-                    className="chapter-edit-button"
-                    onClick={() => showChapterForm(chapter.chapterid)}
-                  >
-                    EDIT
-                  </button>
                   <div className="chapter-numbers">
                     CHAPTER {chapter.chapternumber}:
                   </div>
@@ -118,14 +112,22 @@ const Chapters = () => {
                   <div className="chapter-summaries">
                     {chapter.chapterdescription}
                   </div>
+                  <button
+                    className="chapter-edit-button"
+                    onClick={() => showChapterForm(chapter.chapterid)}
+                  >
+                    EDIT
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <button className="button-9" onClick={() => setShowDrawer(true)}>
-          ADD CHAPTER
-        </button>
+        <div className="div-button">
+          <button className="button-9" onClick={() => setShowDrawer(true)}>
+            ADD CHAPTER
+          </button>
+        </div>
         <Drawer open={showDrawer} setOpen={setShowDrawer}>
           <Form
             handleChapterNumberInput={handleChapterNumberInput}

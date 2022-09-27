@@ -10,40 +10,50 @@ function Form({
 }) {
   return (
     <div id="wrapper">
-      <div className="card-red">
+      <div className="chapter-form">
         <form>
-          <p>INPUT CHAPTER NUMBER</p>
-          <input
-            type="number"
-            id="title-input"
-            name="title-input"
-            onChange={handleChapterNumberInput}
-          ></input>
-          <p>INPUT TITLE:</p>
-          <input
-            type="text"
-            id="title-input"
-            name="title-input"
-            onChange={handleChapterTitleInput}
-          ></input>
+          <div className="chapter-info-form">
+            <label>Chapter Number: </label>
+            <input
+              className="chapter-input"
+              type="number"
+              id="title-input"
+              name="title-input"
+              onChange={handleChapterNumberInput}
+            ></input>
+            <label>Chapter Title: </label>
+            <input
+              className="chapter-input"
+              type="text"
+              id="title-input"
+              name="title-input"
+              onChange={handleChapterTitleInput}
+            ></input>
+            <label>Chapter Description: </label>
+            <input
+              className="chapter-input"
+              type="text"
+              id="desc-input"
+              name="desc-input"
+              onChange={handleChapterDescriptionInput}
+            ></input>
 
-          <p>INPUT DESCRIPTION</p>
-          <input
-            type="text"
-            id="desc-input"
-            name="desc-input"
-            onChange={handleChapterDescriptionInput}
-          ></input>
-
-          <button className="button-9" onClick={handleChapterClick}>
-            CREATE CHAPTER
-          </button>
-          <button className="button-9" onClick={handleChapterEditClick}>
-            EDIT CHAPTER
-          </button>
-          <button className="button-9" onClick={handleChapterDeleteClick}>
-            DELETE CHAPTER
-          </button>
+            <div className="div-button">
+              <button className="button-9" onClick={handleChapterClick}>
+                CREATE CHAPTER
+              </button>
+            </div>
+            <div className="div-button">
+              <button className="button-9" onClick={handleChapterEditClick}>
+                EDIT CHAPTER
+              </button>
+            </div>
+            <div className="div-button">
+              <button className="button-9" onClick={handleChapterDeleteClick}>
+                DELETE CHAPTER
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import "./userID.css";
 
 function UserID() {
   const [data, setData] = useState([]);
@@ -14,28 +15,28 @@ function UserID() {
   let navigate = useNavigate();
   let { username } = useParams();
   return (
-    <div>
-      {data.map((user, i) => (
-        <div key={i}>
-          <div className>
-            <div className>
-              <div className>
-                <p>Hello</p>
+    <div className="user-id-background">
+      <div className="user-id-page">
+        {data.map((user, i) => (
+          <div key={i}>
+            <div className="full-greeting">
+              <div className="greeting">
+                <h2>hello</h2>
               </div>
-              <div className></div>
             </div>
+            <h1 className="full-name">
+              {user.firstname} {user.lastname}
+            </h1>
+            <div className="button-div"><button className="button-10"
+              onClick={() => {
+                navigate(`/books/${user.userid}`);
+              }}
+            >
+              SEE ALL BOOKS
+            </button></div>
           </div>
-          <p>Welcome {user.firstname} {user.lastname}</p>
-          <button
-        onClick={() => {
-          navigate(`/books/${user.userid}`);
-        }}
-      >
-        SEE ALL BOOKS
-      </button>
-        </div>
-      ))}
-      
+        ))}
+      </div>
     </div>
   );
 }

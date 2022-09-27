@@ -1,12 +1,17 @@
 import "./form.css";
 
-function Form({ handleTitleInput, handleDescriptionInput, handleClick, handleEditClick, handleDeleteClick }) {
+function Form({
+  handleTitleInput,
+  handleDescriptionInput,
+  handleClick,
+  handleEditClick,
+  handleDeleteClick,
+}) {
   return (
     <div id="wrapper">
       <div className="book-form">
         <form>
           <div className="add-book-form">
-            <h1>ADD BOOK</h1>
             <div className="book-info-form">
               <label>Book Title: </label>
               <input
@@ -26,15 +31,33 @@ function Form({ handleTitleInput, handleDescriptionInput, handleClick, handleEdi
                 onChange={handleDescriptionInput}
               ></input>
 
-              <button className="button-8" type="button" onClick={handleClick}>
-                ADD BOOK
-              </button>
-              <button className="button-8" type="button" onClick={handleEditClick}>
-                EDIT BOOK
-              </button>
-              <button className="button-8" type="button" onClick={handleDeleteClick}>
-                DELETE BOOK
-              </button>
+              <div className="button-2-div">
+                <button
+                  className="button-8"
+                  type="button"
+                  onClick={handleClick}
+                >
+                  ADD BOOK
+                </button>
+              </div>
+              <div className="button-2-div">
+                <button
+                  className="button-8"
+                  type="button"
+                  onClick={handleEditClick}
+                >
+                  EDIT BOOK
+                </button>
+              </div>
+              <div className="button-2-div">
+                <button
+                  className="button-8"
+                  type="button"
+                  onClick={handleDeleteClick}
+                >
+                  DELETE BOOK
+                </button>
+              </div>
             </div>
           </div>
         </form>

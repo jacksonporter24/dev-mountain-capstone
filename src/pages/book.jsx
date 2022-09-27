@@ -99,9 +99,6 @@ function Book() {
         {data.map((book, i) => (
           <div key={i}>
             <div> {bookIdShow ? <div>BOOK ID: {book.bookid} </div> : null}</div>
-            <div>
-              <button onClick={() => showForm(book.bookid)}>Edit</button>
-            </div>
             <div
               className="book-title"
               onClick={() => {
@@ -114,6 +111,9 @@ function Book() {
                 <div className="description">DESCRIPTION:</div> <br></br>
                 <br></br>
                 <div className="description-font">{book.description}</div>
+                <div>
+                  <button className="book-edit-button" onClick={() => showForm(book.bookid)}>EDIT</button>
+                </div>
               </div>
             </div>
           </div>
