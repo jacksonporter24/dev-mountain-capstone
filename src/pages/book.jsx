@@ -6,6 +6,9 @@ import newBookStub from "../utilities";
 import "./book.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { Drawer } from "./drawer";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Book() {
   const [data, setData] = useState([]);
@@ -16,6 +19,7 @@ function Book() {
   const navigate = useNavigate();
   const [bookIdShow, setBookIdShow] = useState(false);
   const [currentlyEditing, setCurrentlyEditing] = useState(null);
+  const [bookToBeEdited, setBookToBeEdited] = useState({});
 
   useEffect(() => {
     axios.get(`/api/userbooks/${userid}`).then((res) => setData(res.data));
@@ -24,10 +28,18 @@ function Book() {
   let { userid } = useParams();
 
   const handleTitleInput = (event) => {
+    setBookToBeEdited({
+      ...bookToBeEdited,
+      title: event.target.value
+    })
     setNewTitle(event.target.value);
   };
 
   const handleDescriptionInput = (event) => {
+    setBookToBeEdited({
+      ...bookToBeEdited,
+      description: event.target.value
+    })
     setNewDescription(event.target.value);
   };
 
@@ -87,31 +99,34 @@ function Book() {
             <div> {bookIdShow ? <div>BOOK ID: {book.bookid} </div> : null}</div>
             <div className="book-title">
               <div className="title-desc">
-                <div
-                  className="book-titles"
-                  onClick={() => {
-                    navigate(`/chapters/${book.bookid}`);
-                  }}
-                >
-                  {book.title}
+                <div className="pen-icon" onClick={() => showForm(book.bookid)}>
+                  <FontAwesomeIcon icon={faPen} />
                 </div>
+                <div className="book-titles">{book.title}</div>
                 <br></br>
                 <div className="description">DESCRIPTION:</div> <br></br>
                 <br></br>
                 <div className="description-font">{book.description}</div>
                 <div>
-                  <button
-                    className="book-edit-button"
-                    onClick={() => showForm(book.bookid)}
+                  <div
+                    className="book-icon"
+                    onClick={() => navigate(`/chapters/${book.bookid}`)}
                   >
-                    EDIT
-                  </button>
+                    <FontAwesomeIcon icon={faBookOpen} />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         ))}
-        <button className="back-button" onClick={() => { navigate(`/user/${userid}`)}}>BACK</button>
+        <button
+          className="back-button"
+          onClick={() => {
+            navigate(`/user/${userid}`);
+          }}
+        >
+          BACK
+        </button>
       </div>
 
       <Drawer open={show} setOpen={setShow}>

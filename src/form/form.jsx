@@ -5,7 +5,7 @@ function Form({
   handleDescriptionInput,
   handleClick,
   handleEditClick,
-  handleDeleteClick,
+  handleDeleteClick
 }) {
   return (
     <div id="wrapper">

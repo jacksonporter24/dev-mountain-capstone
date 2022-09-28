@@ -6,6 +6,8 @@ import "./chapters.css";
 import Form from "./ChapterForm";
 import { Drawer } from "./drawer";
 import cx from "classnames";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Chapters = () => {
   const [data, setData] = useState([]);
@@ -41,7 +43,7 @@ const Chapters = () => {
   const handleChapterTitleInput = (event) => {
     setChapterToBeEdited({
       ...chapterToBeEdited,
-      chaptertitle: event.target.value,
+      chaptertitle: event.target.value
     });
     setNewChapTitle(event.target.value);
   };
@@ -121,17 +123,17 @@ const Chapters = () => {
                 <div className="chapter-words">
                   <div className="chapter-numbers">
                     CHAPTER {chapter.chapternumber}:
+                    <div
+                      className="pen-icon"
+                      onClick={() => showChapterForm(chapter)}
+                    >
+                      <FontAwesomeIcon icon={faPen} />
+                    </div>
                   </div>
                   <div className="chapter-titles">{chapter.chaptertitle}</div>
                   <div className="chapter-summaries">
                     {chapter.chapterdescription}
                   </div>
-                  <button
-                    className="chapter-edit-button"
-                    onClick={() => showChapterForm(chapter)}
-                  >
-                    EDIT
-                  </button>
                 </div>
               </div>
             ))}
