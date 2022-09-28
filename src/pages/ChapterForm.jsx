@@ -22,7 +22,7 @@ function Form({
               name="title-input"
               value={chapterToBeEdited.chapternumber}
               onChange={handleChapterNumberInput}
-            ></input>
+            ></input> 
             <label>Chapter Title: </label>
             <input
               className="chapter-input"
@@ -54,6 +54,7 @@ function Form({
                   EDIT CHAPTER
                 </button>
               )}
+
             </div>
             <div className="div-button">
               {chapterToBeEdited.chapterid !== undefined && (

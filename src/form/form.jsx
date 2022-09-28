@@ -5,7 +5,8 @@ function Form({
   handleDescriptionInput,
   handleClick,
   handleEditClick,
-  handleDeleteClick
+  handleDeleteClick,
+  bookToBeEdited,
 }) {
   return (
     <div id="wrapper">
@@ -19,6 +20,7 @@ function Form({
                 type="text"
                 id="title-input"
                 name="title-input"
+                value={bookToBeEdited.title}
                 onChange={handleTitleInput}
               ></input>
               <br></br>
@@ -28,35 +30,42 @@ function Form({
                 type="text"
                 id="desc-input"
                 name="desc-input"
+                value={bookToBeEdited.description}
                 onChange={handleDescriptionInput}
               ></input>
 
               <div className="button-2-div">
-                <button
-                  className="button-8"
-                  type="button"
-                  onClick={handleClick}
-                >
-                  ADD BOOK
-                </button>
+                {bookToBeEdited.bookid === undefined && (
+                  <button
+                    className="button-8"
+                    type="button"
+                    onClick={handleClick}
+                  >
+                    CREATE BOOK
+                  </button>
+                )}
               </div>
               <div className="button-2-div">
-                <button
-                  className="button-8"
-                  type="button"
-                  onClick={handleEditClick}
-                >
-                  EDIT BOOK
-                </button>
+                {bookToBeEdited.bookid !== undefined && (
+                  <button
+                    className="button-8"
+                    type="button"
+                    onClick={handleEditClick}
+                  >
+                    EDIT BOOK
+                  </button>
+                )}
               </div>
               <div className="button-2-div">
-                <button
-                  className="button-8"
-                  type="button"
-                  onClick={handleDeleteClick}
-                >
-                  DELETE BOOK
-                </button>
+                {bookToBeEdited.bookid !== undefined && (
+                  <button
+                    className="button-8"
+                    type="button"
+                    onClick={handleDeleteClick}
+                  >
+                    DELETE BOOK
+                  </button>
+                )}
               </div>
             </div>
           </div>

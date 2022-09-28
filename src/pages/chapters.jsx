@@ -8,6 +8,7 @@ import { Drawer } from "./drawer";
 import cx from "classnames";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 
 const Chapters = () => {
   const [data, setData] = useState([]);
@@ -43,7 +44,7 @@ const Chapters = () => {
   const handleChapterTitleInput = (event) => {
     setChapterToBeEdited({
       ...chapterToBeEdited,
-      chaptertitle: event.target.value
+      chaptertitle: event.target.value,
     });
     setNewChapTitle(event.target.value);
   };
@@ -76,6 +77,7 @@ const Chapters = () => {
 
   const handleChapterEditClick = (event) => {
     event.preventDefault();
+    console.log(`this is the ${chapterToBeEdited.chapterid}`);
     axios
       .put(
         `/api/editchapters/${chapterToBeEdited.chapterid}/${bookid}`,
@@ -102,6 +104,19 @@ const Chapters = () => {
   return (
     <div className="chapter-cards">
       <div className="chapters-background">
+        <div className="chapter-nav">
+          <button className="back-button" onClick={() => navigate(-1)}>
+            BACK
+          </button>
+          <button className="button-9" onClick={() => setShowDrawer(true)}>
+            ADD A CHAPTER
+            <FontAwesomeIcon
+              className="plus-symbol"
+              icon={faSquarePlus}
+              size="lg"
+            />
+          </button>
+        </div>
         <div className="chapter-info">
           {bookData.map((book, i) => (
             <div key={i}>
@@ -138,16 +153,6 @@ const Chapters = () => {
               </div>
             ))}
           </div>
-        </div>
-        <div className="div-button">
-          <button className="button-9" onClick={() => setShowDrawer(true)}>
-            ADD CHAPTER
-          </button>
-        </div>
-        <div>
-          <button className="back-button" onClick={() => navigate(-1)}>
-            BACK
-          </button>
         </div>
         <Drawer
           open={showDrawer}
