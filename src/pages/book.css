@@ -1,5 +1,4 @@
 @font-face {
-  font-family: "unna-font";
   src: url(../fonts/Unna-Regular.ttf);
 }
 
@@ -20,7 +19,7 @@
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-family: "unna-font";
+
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -87,7 +86,6 @@
 }
 
 .book-titles {
-  font-family: "unna-font";
   font-size: xxx-large;
   display: flex;
   flex-direction: column;
@@ -97,13 +95,11 @@
 }
 
 .description {
-  font-family: "unna-font";
   font-size: x-large;
   text-align: center;
 }
 
 .description-font {
-  font-family: "unna-font";
   font-size: x-large;
   color: black;
   display: flex;
@@ -170,7 +166,6 @@
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
 }
-
 
 .back-button {
   align-items: center;

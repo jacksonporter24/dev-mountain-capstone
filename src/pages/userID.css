@@ -1,5 +1,4 @@
 @font-face {
-  font-family: "unna-font";
   src: url(../fonts/Unna-Regular.ttf);
 }
 
@@ -38,7 +37,7 @@
   padding-top: 20px;
   border: 0px;
   margin: 0px;
-  font-family: "unna-font";
+
   font-size: xx-large;
   display: flex;
   justify-content: center;
@@ -49,7 +48,7 @@
   border: 0px;
   margin: 0px;
   padding: 0px;
-  font-family: "unna-font";
+
   font-size: 2cm;
 }
 
@@ -110,4 +109,3 @@
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
 }
-

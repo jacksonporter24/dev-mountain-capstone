@@ -1,12 +1,8 @@
-@font-face {
-  font-family: "unna-font";
-  src: url(../fonts/Unna-Regular.ttf);
-}
-
 .chapter-cards {
   display: flex;
   flex-direction: row;
   overflow: auto;
+  background: linear-gradient(45deg, white, rgb(170, 170, 170));
 }
 
 .chapter-info-form {
@@ -27,10 +23,9 @@
   border: 10px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-} 
+}
 
 .chapters-background {
-  background-color: white;
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -60,7 +55,6 @@
 
 label {
   font-size: large;
-  font-family: "unna-font";
 }
 
 .chapter-info {
@@ -76,14 +70,12 @@ label {
 }
 
 .chapter-numbers {
-  font-family: "unna-font";
   display: flex;
   justify-content: center;
   font-size: large;
 }
 
 .chapter-titles {
-  font-family: "unna-font";
   display: flex;
   justify-content: center;
   padding: 5px;
@@ -91,7 +83,6 @@ label {
 }
 
 .chapter-summaries {
-  font-family: "unna-font";
   display: flex;
   justify-content: justify;
   padding: 10px;
@@ -118,7 +109,7 @@ label {
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-family: "unna-font";
+
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -170,7 +161,7 @@ label {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: "unna-font";
+
   font-size: 16px;
   font-weight: 600;
   justify-content: center;

@@ -7,6 +7,7 @@ function Form({
   handleChapterClick,
   handleChapterEditClick,
   handleChapterDeleteClick,
+  chapterToBeEdited,
 }) {
   return (
     <div id="wrapper">
@@ -19,6 +20,7 @@ function Form({
               type="number"
               id="title-input"
               name="title-input"
+              value={chapterToBeEdited.chapternumber}
               onChange={handleChapterNumberInput}
             ></input>
             <label>Chapter Title: </label>
@@ -27,6 +29,7 @@ function Form({
               type="text"
               id="title-input"
               name="title-input"
+              value={chapterToBeEdited.chaptertitle}
               onChange={handleChapterTitleInput}
             ></input>
             <label>Chapter Description: </label>
@@ -36,21 +39,28 @@ function Form({
               id="desc-input"
               name="desc-input"
               onChange={handleChapterDescriptionInput}
+              value={chapterToBeEdited.chapterdescription}
             ></input>
             <div className="div-button">
-              <button className="button-9" onClick={handleChapterClick}>
-                CREATE CHAPTER
-              </button>
+              {chapterToBeEdited.chapterid === undefined && (
+                <button className="button-9" onClick={handleChapterClick}>
+                  CREATE CHAPTER
+                </button>
+              )}
             </div>
             <div className="div-button">
-              <button className="button-9" onClick={handleChapterEditClick}>
-                EDIT CHAPTER
-              </button>
+              {chapterToBeEdited.chapterid !== undefined && (
+                <button className="button-9" onClick={handleChapterEditClick}>
+                  EDIT CHAPTER
+                </button>
+              )}
             </div>
             <div className="div-button">
-              <button className="button-9" onClick={handleChapterDeleteClick}>
-                DELETE CHAPTER
-              </button>
+              {chapterToBeEdited.chapterid !== undefined && (
+                <button className="button-9" onClick={handleChapterDeleteClick}>
+                  DELETE CHAPTER
+                </button>
+              )}
             </div>
           </div>
         </form>

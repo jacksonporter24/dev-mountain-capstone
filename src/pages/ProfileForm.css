@@ -1,5 +1,4 @@
 @font-face {
-  font-family: "unna-font";
   src: url(../fonts/Unna-Regular.ttf);
 }
 
@@ -7,7 +6,7 @@
   height: 100%;
   width: 100%;
   overflow: auto;
-  font-family: "unna-font"
+  font-family: "unna-font";
 }
 
 .user-info {
@@ -41,12 +40,12 @@ label {
 
 .button-center {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 20px; 
+  padding: 20px;
 }
-  .button-7 {
+.button-7 {
   align-items: center;
   background-clip: padding-box;
   background-color: #fa6400;
@@ -57,7 +56,7 @@ label {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: "unna-font";
+
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -72,7 +71,7 @@ label {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: 15vw; 
+  width: 15vw;
   align-self: center;
 }
 

@@ -99,7 +99,7 @@ function User() {
         </button>
       </div>
       <br></br>
-      <h1>OR</h1>
+      <h1 className="or-text">OR</h1>
       <button className="button-5" onClick={() => setShowDrawer(true)}>
         SIGN UP FOR FREE
       </button>

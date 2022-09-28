@@ -1,17 +1,15 @@
 @font-face {
-  font-family: "unna-font";
   src: url(../fonts/Unna-Regular.ttf);
 }
 
 .login-text {
-  font-family: "unna-font";
   font-size: xx-large;
   color: black;
   padding: 5px;
+  margin: 0px;
 }
 
 .profile {
-  font-family: "unna-font";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +21,6 @@
 }
 
 .input-box {
-  font-family: "unna-font";
   height: 10vh;
   width: 30vw;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -33,26 +30,23 @@
 }
 
 /* input[type="submit"]:hover {
-  font-family: "unna-font";
+  
   background: #6cf0c2;
 } */
 
 .button-container {
-  font-family: "unna-font";
   display: flex;
   justify-content: center;
 }
 
 .login-form {
-  font-family: "unna-font";
   background-color: white;
-  padding-bottom: 1.5rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 50vw;
+  padding: 32px;
 }
 
 .list-container {
@@ -60,19 +54,15 @@
 }
 
 .error {
-  font-family: "unna-font";
   color: red;
   font-size: 12px;
 }
 
 .title {
-  font-family: "unna-font";
   font-size: 25px;
-  margin-bottom: 20px;
 }
 
 .input-container {
-  font-family: "unna-font";
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -80,8 +70,8 @@
 }
 
 .plot-your-book {
-  font-family: "unna-font";
   padding: 25px;
+  text-shadow: 2px 2px 4px #ffffff;
 }
 
 .home-page {
@@ -90,6 +80,14 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-image: url("../../public/book-background.jpeg");
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.or-text {
+  text-shadow: 2px 2px 4px #ffffff;
 }
 
 .button-center {

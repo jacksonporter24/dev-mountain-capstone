@@ -5,6 +5,7 @@ import axios from "axios";
 import "./chapters.css";
 import Form from "./ChapterForm";
 import { Drawer } from "./drawer";
+import cx from "classnames";
 
 const Chapters = () => {
   const [data, setData] = useState([]);
@@ -15,6 +16,7 @@ const Chapters = () => {
   const [newChapDesc, setNewChapDesc] = useState([...data]);
   const [showDrawer, setShowDrawer] = useState(false);
   const [currentlyChapterEditing, setCurrentlyChapterEditing] = useState(null);
+  const [chapterToBeEdited, setChapterToBeEdited] = useState({});
 
   let { bookid, userid } = useParams();
   const navigate = useNavigate();
@@ -29,14 +31,26 @@ const Chapters = () => {
   }, []);
 
   const handleChapterNumberInput = (event) => {
+    setChapterToBeEdited({
+      ...chapterToBeEdited,
+      chapternumber: event.target.value,
+    });
     setNewChapNum(event.target.value);
   };
 
   const handleChapterTitleInput = (event) => {
+    setChapterToBeEdited({
+      ...chapterToBeEdited,
+      chaptertitle: event.target.value,
+    });
     setNewChapTitle(event.target.value);
   };
 
   const handleChapterDescriptionInput = (event) => {
+    setChapterToBeEdited({
+      ...chapterToBeEdited,
+      chapterdescription: event.target.value,
+    });
     setNewChapDesc(event.target.value);
   };
 
@@ -50,31 +64,36 @@ const Chapters = () => {
         bookid,
       })
       .then((res) => setData(res.data));
-      setShowDrawer(false);
+    setShowDrawer(false);
   };
 
-  const showChapterForm = (id) => {
+  const showChapterForm = (chapter) => {
     setShowDrawer(!showDrawer);
-    setCurrentlyChapterEditing(id);
+    setChapterToBeEdited(chapter);
   };
 
   const handleChapterEditClick = (event) => {
     event.preventDefault();
     axios
-      .put(`/api/editchapters/${currentlyChapterEditing}/${bookid}`, {
-        chapternumber: newChapNum,
-        chaptertitle: newChapTitle,
-        chapterdescription: newChapDesc,
-      })
-      .then((res) => setData(res.data));
+      .put(
+        `/api/editchapters/${chapterToBeEdited.chapterid}/${bookid}`,
+        chapterToBeEdited
+      )
+      .then((res) => setData(res.data))
+      .finally(() => {
+        setChapterToBeEdited({});
+      });
     setShowDrawer(false);
   };
 
   const handleChapterDeleteClick = (event) => {
     event.preventDefault();
     axios
-      .delete(`/api/deletechapters/${currentlyChapterEditing}/${bookid}`)
-      .then((res) => setData(res.data));
+      .delete(`/api/deletechapters/${chapterToBeEdited.chapterid}/${bookid}`)
+      .then((res) => setData(res.data))
+      .finally(() => {
+        setChapterToBeEdited({});
+      });
     setShowDrawer(false);
   };
 
@@ -109,7 +128,7 @@ const Chapters = () => {
                   </div>
                   <button
                     className="chapter-edit-button"
-                    onClick={() => showChapterForm(chapter.chapterid)}
+                    onClick={() => showChapterForm(chapter)}
                   >
                     EDIT
                   </button>
@@ -124,9 +143,17 @@ const Chapters = () => {
           </button>
         </div>
         <div>
-        <button className="back-button" onClick={() => { navigate(`books/${userid}`)}}>BACK</button>
+          <button className="back-button" onClick={() => navigate(-1)}>
+            BACK
+          </button>
         </div>
-        <Drawer open={showDrawer} setOpen={setShowDrawer}>
+        <Drawer
+          open={showDrawer}
+          setOpen={(open) => {
+            setShowDrawer(open);
+            setChapterToBeEdited({});
+          }}
+        >
           <Form
             handleChapterNumberInput={handleChapterNumberInput}
             handleChapterTitleInput={handleChapterTitleInput}
@@ -134,6 +161,7 @@ const Chapters = () => {
             handleChapterClick={handleChapterClick}
             handleChapterEditClick={handleChapterEditClick}
             handleChapterDeleteClick={handleChapterDeleteClick}
+            chapterToBeEdited={chapterToBeEdited}
           />
         </Drawer>
       </div>
