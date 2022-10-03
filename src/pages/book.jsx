@@ -103,7 +103,7 @@ function Book() {
           </button>
           <button className="button-5" onClick={() => setShow(true)}>
           ADD A BOOK
-          <FontAwesomeIcon className="plus-symbol" icon={faSquarePlus} size="lg"/>
+          <FontAwesomeIcon className="plus-s``ymbol" icon={faSquarePlus} size="lg"/>
           </button>
         </div>
         <br></br>

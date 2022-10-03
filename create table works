@@ -1,0 +1,6 @@
+CREATE TABLE chapters (
+  chapterID SERIAL PRIMARY KEY,
+  chapterNumber INTEGER,
+  chapterTitle VARCHAR(1000),
+  chapterDescription VARCHAR(10000)
+);

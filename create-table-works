@@ -1,0 +1,6 @@
+-- CREATE TABLE book_chapters (
+--   bookID SERIAL PRIMARY KEY,
+--   chapter_title VARCHAR(100)
+
+-- );
+
